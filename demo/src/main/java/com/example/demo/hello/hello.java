@@ -1,8 +1,7 @@
-package com.example.demo;
+package com.example.demo.hello;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -18,21 +17,6 @@ class hello {
     }
 }
 
-@RestController
-class MemberApiController {
-    @Autowired
-    MemberAccount memberAccount;
-    @RequestMapping("/memberApi/memberTest")
-    public MemberAccount memberTest() {
-        MemberAccount memberAccount = new MemberAccount();
-        memberAccount.setAddress("台北市");
-        memberAccount.setCellphone("09123456789");
-        memberAccount.setEmail("test@gmail.com");
-        memberAccount.setId(1);
-        memberAccount.setPassword("123456789");
-        return memberAccount;
-    }
-}
 @RestController
 class productControll{
 @GetMapping(value = "/products/{id}")
