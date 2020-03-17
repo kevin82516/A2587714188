@@ -15,8 +15,3 @@ class HtmlController {
         return "testmysql";
     }
 }
-@Controller
-@RequestMapping("/mysql")
-class mysql{
-
-}

@@ -1,5 +1,9 @@
 package com.example.demo.mysqldemo;
+
+
+import java.util.ArrayList;
 import java.sql.*;
+import java.util.List;
 
 class Main {
 
@@ -26,19 +30,40 @@ class DBConnect{
         }
     }
 
-    public void getData() {
+    public List<String> getData() {
+        List<String> db=new ArrayList<>();
         try {
             String query = "select * from c";
             rs = st.executeQuery(query);
             System.out.println("Records for Database");
+
             while(rs.next()) {
+
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
+                String price=rs.getString("price");
+                db.add(String.valueOf(id));
+                db.add(name);
+                db.add(price);
                 System.out.println("id= "+id+" name= "+name);
             }
+            System.out.println(db);
+            return db;
         }catch(Exception ex) {
             System.out.println(ex);
         }
-    }
 
+        return db;
+    }
+    public void addData(){
+        try{
+
+
+        }
+        catch(Exception ex) {
+            System.out.println(ex);
+        }
+
+    }
 }
+
