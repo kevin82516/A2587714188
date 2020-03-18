@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript">
+    function findata(){
+        String db;
+        DBConnect connection=new DBConnect();
+        db=String.valueOf(connection.getData());
+        document.getElementById("finddata").innerHTML=db;
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>mysqlCreate</title>
+</head>
+<body>
+<p id="finddata"></p>
+<input type="button" value="顯示" onclick="findata()">
+<a href="/mysql/home">回首頁</a>
+</body>
+</html>
