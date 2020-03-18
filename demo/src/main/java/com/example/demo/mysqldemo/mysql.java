@@ -10,7 +10,7 @@ class Main {
     public static void main(String[] args) {
 
         DBConnect connection=new DBConnect();
-        connection.getData();
+        connection.addData();
     }
 }
 
@@ -55,15 +55,45 @@ class DBConnect{
 
         return db;
     }
-    public void addData(){
+    public void addData() {
+        try {
+            String setid ="1" ;
+            String setname = "A";
+            String setprice = "10";
+            String query = "insert into c (id , name , price) value (?,?,?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, setid);
+            ps.setString(2, setname);
+            ps.setString(3, setprice);
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
+        public void UpData(){
+            try{
+                String query = "update c set id=? where id=?";
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setString(1,"3");
+                ps.setString(2,"5");
+//                ps.setString(3,"1");
+                ps.executeUpdate();
+            }
+            catch(Exception ex) {
+                System.out.println(ex);
+            }
+    }
+    public void delet(){
         try{
-
-
+            String query = "delete from c where id=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1,"1");
+            ps.executeUpdate();
         }
         catch(Exception ex) {
             System.out.println(ex);
         }
-
     }
 }
 

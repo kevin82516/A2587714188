@@ -2,10 +2,10 @@
 <html lang="en">
 <script type="text/javascript">
     function findata(){
-        String db;
-        DBConnect connection=new DBConnect();
-        db=String.valueOf(connection.getData());
-        document.getElementById("finddata").innerHTML=db;
+        var one =document.getElementsByName(fname);
+        var two =document.getElementsByName(lname);
+        document.getElementById("finddata").innerHTML=one;
+        document.getElementById("finddata").innerHTML=two;
     }
 </script>
 <head>
@@ -13,7 +13,10 @@
     <title>mysqlCreate</title>
 </head>
 <body>
-<p id="finddata"></p>
+<p id="finddata">test</p>
+<?php
+　echo $_POST["fname"];
+?>
 <input type="button" value="顯示" onclick="findata()">
 <a href="/mysql/home">回首頁</a>
 </body>

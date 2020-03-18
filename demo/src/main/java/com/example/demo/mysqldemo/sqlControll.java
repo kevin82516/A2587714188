@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 class mysqldemo {
     @RequestMapping(value = "home")
     public String mysqlhome() {
-        String db;
-        DBConnect connection=new DBConnect();
-        db=String.valueOf(connection.getData());
+//        String db;
+//        DBConnect connection=new DBConnect();
+//        db=String.valueOf(connection.getData());
         return "mysqlhome";
     }
 
