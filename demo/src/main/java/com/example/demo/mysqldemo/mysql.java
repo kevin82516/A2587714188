@@ -1,6 +1,5 @@
 package com.example.demo.mysqldemo;
 
-
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
@@ -10,7 +9,7 @@ class Main {
     public static void main(String[] args) {
 
         DBConnect connection=new DBConnect();
-        connection.addData();
+        connection.getData();
     }
 }
 
@@ -33,7 +32,7 @@ class DBConnect{
     public List<String> getData() {
         List<String> db=new ArrayList<>();
         try {
-            String query = "select * from c";
+            String query = "select * from c order by id asc";
             rs = st.executeQuery(query);
             System.out.println("Records for Database");
 
@@ -45,7 +44,6 @@ class DBConnect{
                 db.add(String.valueOf(id));
                 db.add(name);
                 db.add(price);
-                System.out.println("id= "+id+" name= "+name);
             }
             System.out.println(db);
             return db;
@@ -95,5 +93,6 @@ class DBConnect{
             System.out.println(ex);
         }
     }
+
 }
 
