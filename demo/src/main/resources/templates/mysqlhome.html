@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <title>mysqlhome</title>
 </head>
-<form action="just" method="get" class="form-horizontal">
-    <input type="submit" value="獲得資料"> <br/>
-</form>
 <div th:object="${user}">
     <span th:text="*{id}"></span><br/>
     <span th:text="'nickname:' + *{username}"></span><br/>

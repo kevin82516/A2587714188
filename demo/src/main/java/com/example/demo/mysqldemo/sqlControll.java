@@ -53,7 +53,15 @@ class mysqldemo {
 //        String test=db.get(1);
 //        return "mysqlhome";
 //    }
+@GetMapping("/test")
 
+public ModelAndView test(Model model){
+    ModelAndView modelAndView = new ModelAndView("mysqlAdd");
+    DBConnect connection=new DBConnect();
+    modelAndView.addObject("DB",connection.getData());
+
+    return modelAndView;
+}
     @GetMapping("/index")
 
     public ModelAndView index(Model model){
@@ -69,7 +77,6 @@ class mysqldemo {
         return modelAndView;
     }
     @Data
-
     @AllArgsConstructor
     public class User {
         private Long id;

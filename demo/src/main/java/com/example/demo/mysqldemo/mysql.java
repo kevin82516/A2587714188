@@ -1,5 +1,7 @@
 package com.example.demo.mysqldemo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
@@ -29,28 +31,24 @@ class DBConnect{
         }
     }
 
-    public List<String> getData() {
-        List<String> db=new ArrayList<>();
+    public List<bdDao> getData() {
+        List<bdDao> db=new ArrayList<>();
         try {
             String query = "select * from c order by id asc";
             rs = st.executeQuery(query);
             System.out.println("Records for Database");
 
             while(rs.next()) {
-
-                int id = rs.getInt("id");
+                String id = rs.getString("id");
                 String name = rs.getString("name");
                 String price=rs.getString("price");
-                db.add(String.valueOf(id));
-                db.add(name);
-                db.add(price);
+                db.add(new bdDao(id,name,price));
             }
             System.out.println(db);
             return db;
         }catch(Exception ex) {
             System.out.println(ex);
         }
-
         return db;
     }
     public void addData() {
@@ -96,3 +94,11 @@ class DBConnect{
 
 }
 
+
+@Data
+@AllArgsConstructor
+class bdDao{
+    private String id;
+    private String name;
+    private String price;
+}

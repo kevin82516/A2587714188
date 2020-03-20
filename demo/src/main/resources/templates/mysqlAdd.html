@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>mysqlAdd</title>
 </head>
 <body>
- <form action="Create" name="setfrom"  method="post">
-    id：  <input type="text" name="setid"><br/>
-    name：<input type="text" name="setname"><br/>
-    price：<input type="text" name="setprice"><br/>
-    <input type="submit" value="送出"> <br/>
-    </form>
-
+<div th:object="${DB}">
+    <table border="1px" >
+    <tr> <td>id</td> <td>name</td> <td>price</td> </tr>
+        <tr th:each="i, stat : ${DB}">
+            <td th:text="${i.id}"></td>
+            <td th:text="${i.name}"></td>
+            <td th:text="${i.price}"></td>
+        </tr>
+</table>
+</div>
 <a href="/mysql/home">回首頁</a>
 </body>
 </html>
