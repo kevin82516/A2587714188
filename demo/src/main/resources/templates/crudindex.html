@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>SpringBoot</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<div th:object="${lists}">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Action</th>
+    </tr>
+        <tr th:each="list, stat : ${lists}">
+            <td th:text="${list.id}"></td>
+            <td th:text="${list.firstName}"></td>
+            <td th:text="${list.lastName}"></td>
+            <td>
+                <a th:href="@{'/view/'+${list.id}}">view</a>
+                <a th:href="@{'/delete/'+${list.id}}">Delete</a>
+                <a th:href="@{'/edit/'+${list.id}}">Edit</a>
+            </td>
+        </tr>
+</table>
+</div>
+<hr/>
+<form method="post" action="/save">
+    <input type="hidden" name="id" value=""/><br>
+    First name:<br>
+    <input type="text" name="firstname"/>
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname" >
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

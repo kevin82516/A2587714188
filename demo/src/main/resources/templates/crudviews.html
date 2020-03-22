@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>SpringBoot</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <td th:text="*{id}"></td>
+    </tr>
+    <tr>
+        <th>First Name</th>
+        <td th:text="#{firstname}"></td>
+    </tr>
+    <tr>
+        <th>Last Name</th>
+        <td>${lists.lastName}</td>
+    </tr>
+</table>
+<a href="/crud">Back</a>
+</body>
+</html>

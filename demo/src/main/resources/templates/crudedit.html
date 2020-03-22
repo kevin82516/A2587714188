@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>SpringBoot</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<hr/>
+<div>
+<form method="post" action="/save">
+    <input type="hidden" name="id" value="*{id}"/><br/>
+    First name:<br>
+    <input type="text" name="firstname" value="${lists.firstName}"/>
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname" value="${lists.lastName}">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+</div>
+
+</body>
+</html>
