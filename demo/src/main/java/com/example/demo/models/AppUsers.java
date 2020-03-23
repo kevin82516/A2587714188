@@ -2,7 +2,7 @@ package com.example.demo.models;
 
 import javax.persistence.*;
 @Entity
-//@Table(name = "appusers")
+@Table(name = "appusers")
 public class AppUsers {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)

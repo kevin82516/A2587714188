@@ -24,31 +24,50 @@ public class crudControll {
     public ModelAndView doHome(){
         ModelAndView mv = new ModelAndView("crudindex");
         mv.addObject("lists",appRepo.findAll());
-        Optional<AppUsers> test = appRepo.findById(2);
-        System.out.println(test);
-        System.out.println();
+        System.out.println(appRepo.findById(2));
+        System.out.println(appRepo.findById(2).get());
+
         return mv;
     }
     @RequestMapping( value = "/save", method = RequestMethod.POST)
     public ModelAndView doSave(@RequestParam("id") int id, @RequestParam("firstname") String firstName, @RequestParam("lastname") String lastName){
         ModelAndView mv = new ModelAndView("redirect:/crud");
+//        mv.addObject("lists",appRepo.findAll());
 //        AppUsers users;
 //        if(!id.isEmpty()){
-//            users =(AppUsers)appRepo.findById(id));
+//            users =(AppUsers)appRepo.findById(id);
 //        } else {
         AppUsers users = new AppUsers();
 //        }
-        users.setId(2);
+//        System.out.println(id);
+        users.setId(id);
         users.setFirstName(firstName);
         users.setLastName(lastName);
         appRepo.save(users);
         return mv;
     }
+    @RequestMapping( value = "/create", method = RequestMethod.POST)
+    public ModelAndView doCreat(@RequestParam("id") String id, @RequestParam("firstname") String firstName, @RequestParam("lastname") String lastName){
+        ModelAndView mv = new ModelAndView("redirect:/crud");
+        mv.addObject("lists",appRepo.findAll());
+        AppUsers users ;
+        if(id.isEmpty()){
+            users=new AppUsers(firstName,lastName);
+        }else{
+            users=new AppUsers();
+            users.setId(Integer.parseInt(id));
+            users.setFirstName(firstName);
+            users.setLastName(lastName);
+        }
+        appRepo.save(users);
+        return mv;
+    }
+
 
     @RequestMapping( value = "/view/{id}", method = RequestMethod.GET)
     public ModelAndView doView(@PathVariable("id") int id){
         ModelAndView mv = new ModelAndView("crudviews");
-        mv.addObject("lists",appRepo.findById(id));
+        mv.addObject("lists", appRepo.findById(id).get());
         return mv;
     }
 

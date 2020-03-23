@@ -21,21 +21,22 @@
     </style>
 </head>
 <body>
-
-<table>
+<div th:object="${lists}">
+    <table>
     <tr>
         <th>ID</th>
         <td th:text="*{id}"></td>
     </tr>
     <tr>
         <th>First Name</th>
-        <td th:text="#{firstname}"></td>
+        <td th:text="*{firstName}"></td>
     </tr>
     <tr>
         <th>Last Name</th>
-        <td>${lists.lastName}</td>
+        <td th:text="*{lastName}"></td>
     </tr>
 </table>
+</div>
 <a href="/crud">Back</a>
 </body>
 </html>
