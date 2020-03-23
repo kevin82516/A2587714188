@@ -24,22 +24,12 @@ public class crudControll {
     public ModelAndView doHome(){
         ModelAndView mv = new ModelAndView("crudindex");
         mv.addObject("lists",appRepo.findAll());
-        System.out.println(appRepo.findById(2));
-        System.out.println(appRepo.findById(2).get());
-
         return mv;
     }
-    @RequestMapping( value = "/save", method = RequestMethod.POST)
+    @RequestMapping( value = "/updata", method = RequestMethod.POST)
     public ModelAndView doSave(@RequestParam("id") int id, @RequestParam("firstname") String firstName, @RequestParam("lastname") String lastName){
         ModelAndView mv = new ModelAndView("redirect:/crud");
-//        mv.addObject("lists",appRepo.findAll());
-//        AppUsers users;
-//        if(!id.isEmpty()){
-//            users =(AppUsers)appRepo.findById(id);
-//        } else {
         AppUsers users = new AppUsers();
-//        }
-//        System.out.println(id);
         users.setId(id);
         users.setFirstName(firstName);
         users.setLastName(lastName);
@@ -47,18 +37,12 @@ public class crudControll {
         return mv;
     }
     @RequestMapping( value = "/create", method = RequestMethod.POST)
-    public ModelAndView doCreat(@RequestParam("id") String id, @RequestParam("firstname") String firstName, @RequestParam("lastname") String lastName){
+    public ModelAndView doCreat(@RequestParam("id") int id, @RequestParam("firstname") String firstName, @RequestParam("lastname") String lastName){
         ModelAndView mv = new ModelAndView("redirect:/crud");
         mv.addObject("lists",appRepo.findAll());
-        AppUsers users ;
-        if(id.isEmpty()){
-            users=new AppUsers(firstName,lastName);
-        }else{
-            users=new AppUsers();
-            users.setId(Integer.parseInt(id));
-            users.setFirstName(firstName);
-            users.setLastName(lastName);
-        }
+        AppUsers users=new AppUsers();
+        users.setFirstName(firstName);
+        users.setLastName(lastName);
         appRepo.save(users);
         return mv;
     }

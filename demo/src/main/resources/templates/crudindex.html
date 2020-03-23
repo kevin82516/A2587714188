@@ -21,6 +21,7 @@
 </head>
 <body>
 <div th:object="${lists}">
+    <h1>目前有的資料</h1>
 <table>
     <tr>
         <th>ID</th>
@@ -41,8 +42,9 @@
 </table>
 </div>
 <hr/>
+<h1>新增資料</h1>
 <form method="post" action="/create">
-    <input type="hidden" name="id" value="3"/>
+    <input type="hidden" name="id" value="1"/>
     First name:<br>
     <input type="text" name="firstname"/>
     <br>
