@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" th:href="@{blog/css/article.css}" />
 </head>
-<body>
-
-</body>
-</html>
+<div class="header">
+    <h2>文章列表</h2>
+</div>
+<a href="article/create">增加文章</a> <a href="/">回首頁</a>
+<div class="row" th:object="${article}">
+    <div class="leftcolumn">
+        <div class="card" th:each="list, stat : ${article}">
+            <h2 th:text="${list.title}"></h2>
+            <h5 th:text="${list.content}"></h5>
+            <div class="fakeimg" style="height:90px;">Image</div>
+            <a th:href="@{'article/view/'+${list.id}}">more view</a>
+            <a class="rightcolumn" th:href="@{'article/delete/'+${list.id}}">Delete</a>
+            <a class="rightcolumn" th:href="@{'article/edit/'+${list.id}}">Edit</a>
+        </div>
+    </div>
+</div>

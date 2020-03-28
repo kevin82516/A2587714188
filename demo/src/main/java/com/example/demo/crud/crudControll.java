@@ -76,7 +76,7 @@ public class crudControll {
         mv.addObject("lists", appRepo.findById(id).get());
         return mv;
     }
-    //顯示單一資料
+    // 創建資料
     @RequestMapping( value = "crud/add", method = RequestMethod.GET)
     public ModelAndView doadd(){
         ModelAndView mv = new ModelAndView("crudadd");
