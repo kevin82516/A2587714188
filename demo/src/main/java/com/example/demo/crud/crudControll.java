@@ -2,7 +2,6 @@ package com.example.demo.crud;
 
 import com.example.demo.models.AppUserRepo;
 import com.example.demo.models.AppUsers;
-import lombok.extern.flogger.Flogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import javax.servlet.http.HttpServletRequest;
+
 import java.io.File;
 import java.io.FileOutputStream;
 
@@ -24,14 +23,7 @@ public class crudControll {
     @Autowired
     AppUserRepo appRepo;
 
-
-    @RequestMapping("/crud")
-    public ModelAndView doHome(){
-        ModelAndView mv = new ModelAndView("crudindex");
-        mv.addObject("lists",appRepo.findAll());
-
-        return mv;
-    }
+    //更新資料方法
     @RequestMapping( value = "/updata", method = RequestMethod.POST)
     public ModelAndView doSave(@RequestParam("id") int id, @RequestParam("firstname") String firstName,
                                @RequestParam("lastname") String lastName ,@RequestParam("age") String Age,
@@ -50,7 +42,8 @@ public class crudControll {
         appRepo.save(users);
         return mv;
     }
-    @RequestMapping( value = "/create", method = RequestMethod.POST)
+    //創建新資料方法
+    @RequestMapping( value = "/add", method = RequestMethod.POST)
     public ModelAndView doCreat(@RequestParam("id") int id, @RequestParam("firstname") String firstName,
                                 @RequestParam("lastname") String lastName ,@RequestParam("age") String Age,
                                 @RequestParam("height") String Height,@RequestParam("weight") String Weight,
@@ -69,27 +62,41 @@ public class crudControll {
         return mv;
     }
 
-
-    @RequestMapping( value = "/view/{id}", method = RequestMethod.GET)
+    //顯示全部資料
+    @RequestMapping("/crud")
+    public ModelAndView doHome(){
+        ModelAndView mv = new ModelAndView("crudindex");
+        mv.addObject("lists",appRepo.findAll());
+        return mv;
+    }
+    //顯示單一資料
+    @RequestMapping( value = "crud/view/{id}", method = RequestMethod.GET)
     public ModelAndView doView(@PathVariable("id") int id){
         ModelAndView mv = new ModelAndView("crudviews");
         mv.addObject("lists", appRepo.findById(id).get());
         return mv;
     }
-
-    @RequestMapping( value = "/delete/{id}", method = RequestMethod.GET)
+    //顯示單一資料
+    @RequestMapping( value = "crud/add", method = RequestMethod.GET)
+    public ModelAndView doadd(){
+        ModelAndView mv = new ModelAndView("crudadd");
+        return mv;
+    }
+    //刪除資料
+    @RequestMapping( value = "crud/delete/{id}", method = RequestMethod.GET)
     public ModelAndView doDelete(@PathVariable("id") int id){
         ModelAndView mv = new ModelAndView("redirect:/crud");
         appRepo.deleteById(id);
         return mv;
     }
-
-    @RequestMapping( value = "/edit/{id}", method = RequestMethod.GET)
+    //編輯資料
+    @RequestMapping( value = "crud/edit/{id}", method = RequestMethod.GET)
     public ModelAndView doEdit(@PathVariable("id") int id){
         ModelAndView mv = new ModelAndView("crudedit");
         mv.addObject("lists",appRepo.findById(id));
         return mv;
     }
+
     @Value("${filePath}")
     private String filePath;
     @RequestMapping( value = "/inputfile", method = RequestMethod.POST)

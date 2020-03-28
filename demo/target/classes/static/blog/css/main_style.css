@@ -1,0 +1,205 @@
+body {
+    font-family: 微軟正黑體;
+    position: relative;
+}
+div{
+    margin-top:5px;
+}
+
+input select{
+    font-size:13px;
+    font-family:serif;
+    padding:6px;
+    widows: 200px;
+    margin-top:5px;
+}
+
+.bigicon {font-size: 3em;}
+h2{font-size: 42px;}
+h3{font-size: 28px;}
+h4{font-size: 18px; line-height: 1.4em;}
+
+p{
+    letter-spacing: 1px;
+    color: #c3c3c3;
+    font-weight: lighter;
+}
+ 
+.conter{
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+.head{
+    background-color:#003344;
+    font-size:30px;
+    font-weight:bold;
+    color:white;
+    text-align:center;
+    padding:10px;
+}
+.content{
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.box{
+    margin-top:10px;
+    font-size:20px;
+    color:red;
+    border-bottom:1px solid red;
+}
+.boxtitle{
+    line-height: 150%;
+    margin-left:15px;
+    margin-top:15px;
+    font-size:14px;
+    font-weight:bold;
+    color:black;
+    text-align: justify;
+    text-justify:inter-ideograph;
+}
+.hide{
+    display: none;
+}
+.fixbox{
+    font-family: 微軟正黑體;
+    margin-top: 5px;
+    color:black;
+    line-height: 175%;
+}
+
+
+/* 主頁icon配置 */
+.school-icon {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+/* 導航欄顏色 */
+.nav-bg {
+    background-color: #614092;
+    /* height: 50px; */
+}
+
+/* 導航標題樣式 */
+.nav-title {
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 600px;
+}
+
+
+/* 登出按鈕 */
+.mainbtn-logout {
+    /* background-color: #7ecef4; */
+    background-color: #25b9cf;
+    border: 1px #00bcd4 solid;
+    border-radius: 6px;
+    color: aliceblue;
+    font-size: 18px;
+    font-weight: 600px;
+    width: 90px;
+    height: 34px;
+    text-align: center;
+    text-decoration: none;
+    /* margin-top: 5px; */
+}
+
+.mainbtn-logout:hover {
+    /* background-color: #00bcd4; */
+    border: 1px #00bcd4 solid;
+    border-radius: 6px;
+    color: aliceblue;
+    font-size: 18px;
+    font-weight: 600px;
+    width: 90px;
+    height: 34px;
+    text-align: center;
+    text-decoration: none;
+    /* margin-top: 5px; */
+}
+
+/* 頁首 */
+.header-block {
+    background-color: aliceblue;
+    width: 100%;
+}
+
+/* 頁尾 */
+.footer-block {
+    text-align: center;
+    width: 100%;
+    height: 25px;
+    background-color: #00bcd4;
+    bottom: 0px;
+    /* left: auto; */
+    /* right: auto; */
+    /* left: 0; */
+    /* right: 0; */
+    top: auto;
+    position: fixed;
+}
+
+/* -------------------------- */
+/* 過濾選擇搜尋區塊 */
+.history-leachseach{
+    background-color: #d3e7f3;
+    border: 1px #87c1d8 solid;
+    padding: 10px 20px 20px 20px;
+    border-radius: 8px;
+}
+
+/* 歷史資料區塊 */
+.history-info{
+    background-color: #ded7eb;
+    border: 1px #c5b9dd solid;
+    padding: 10px 20px 20px 20px;
+    border-radius: 8px;
+}
+
+/* 字體大小 */
+.label-words{
+    font-size: 20px;
+    padding: 3px 8px 3px 3px
+}
+
+/* 搜尋鈕 */
+.search-btn{
+    /* background-color: #7845c4; */
+    background-color: #47b2c0;
+    border:1px #87c1d8 solid;
+    padding: 3px 10px 3px 10px;
+    color: aliceblue;
+    border-radius: 7px;
+    font-size: 17px;
+}
+
+/* 過濾器 */
+.leach-div {
+    /* background-color: #ccd9e0; */
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 10px 20px 20px 20px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* 選擇蒐集項目小標題 */
+.leach-div-label{
+    font-size: 18px;
+}
+
+/* 勾選框 */
+.checkbox-select-div{
+    /* background-color: #d0e9d9; */
+    background-color: aliceblue;
+    border: 1px #84ca9e solid;
+    font-size: 16px;
+    height: 300px;
+    border-radius: 8px;
+    padding: 5px 15px 5px 15px;
+    overflow: auto;
+}

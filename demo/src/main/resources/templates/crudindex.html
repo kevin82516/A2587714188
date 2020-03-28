@@ -22,6 +22,7 @@
 <body>
 <div th:object="${lists}">
     <h1>目前有的資料</h1>
+
 <table>
     <tr>
         <th>First Name</th>
@@ -41,45 +42,23 @@
             <td th:text="${list.weight}"></td>
             <td th:text="${list.job}"></td>
             <td th:text="${list.interest}"></td>
+
             <td>
-                <a th:href="@{'/view/'+${list.id}}">view</a>
-                <a th:href="@{'/delete/'+${list.id}}">Delete</a>
-                <a th:href="@{'/edit/'+${list.id}}">Edit</a>
+                <a th:href="@{'crud/view/'+${list.id}}">view</a>
+                <a th:href="@{'crud/delete/'+${list.id}}">Delete</a>
+                <a th:href="@{'crud/edit/'+${list.id}}">Edit</a>
             </td>
         </tr>
 </table>
 </div>
-<img src="${filename}" alt="Mountain View" style="width:304px;height:228px"/>
+<a href="crud/add">增加資料</a> <a href="/">回首頁</a>
+<!--<img src="${filename}" alt="Mountain View" style="width:304px;height:228px"/>-->
 <hr/>
-<h1>新增資料</h1>
-<form method="post" action="/create">
-    <input type="hidden" name="id" value="1"/>
-    First name:<br>
-    <input type="text" name="firstname"/>
-    <br>
-    Last name:<br>
-    <input type="text" name="lastname" >
-    <br>
-    age:<br>
-    <input type="text" name="age" />
-    <br>
-    height:<br>
-    <input type="text" name="height" />
-    <br>
-    weight:<br>
-    <input type="text" name="weight" />
-    <br>
-    job:<br>
-    <input type="text" name="job" />
-    <br>
-    interest:<br>
-    <input type="text" name="interest" />
-    <br>
-    <input type="submit" value="Submit">
-</form>
-<form enctype="multipart/form-data" method="post" action="/inputfile">
-    <input type="file" name="file"/>
-    <input type="submit" value="上傳"/>
-</form>
+
+
+<!--<form enctype="multipart/form-data" method="post" action="/inputfile">-->
+<!--    <input type="file" name="file"/>-->
+<!--    <input type="submit" value="上傳"/>-->
+<!--</form>-->
 </body>
 </html>
