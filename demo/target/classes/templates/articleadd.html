@@ -7,13 +7,15 @@
 </head>
 <body>
 <div>
-<form method="post" action="/article/add">
+<form method="post" action="/article/add" enctype="multipart/form-data">
     <input type="hidden" name="id" value="1"/>
     title:<br>
     <input style="width: 200px;"type="text" name="title"/>
     <br>
     content:<br>
     <input style="height: 200px;width: 200px; vertical-align:text-top;" type="text" name="content" >
+    <br>
+    <input type="file" name="image" />
     <br>
     <input type="submit" value="Submit"> <a href="/article">  Back</a>
 </form>

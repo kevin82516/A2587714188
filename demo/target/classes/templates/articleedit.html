@@ -21,13 +21,15 @@
 </head>
 <body>
 <div>
-    <form method="post" action="article/updata">
+    <form method="post" action="/article/updata" enctype="multipart/form-data">
         <input type="hidden" name="id" th:value="*{id}"/><br/>
         title:<br>
-        <input type="text" name="title" />
+        <input style="width: 200px "type="text" name="title" />
         <br>
         content:<br>
-        <input type="text" name="content" />
+        <input style="height: 200px;width: 200px; vertical-align:text-top;" type="text" name="content" >
+        <br>
+        <input type="file" name="image" />
         <br>
         <input type="submit" value="Submit"> <a href="/article">  Back</a>
     </form>
