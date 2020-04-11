@@ -66,7 +66,7 @@ public class articleControll {
     }
 
     //顯示單一資料
-    @RequestMapping( value = "article/view/{id}", method = RequestMethod.GET)
+    @RequestMapping( value = "article/{id}", method = RequestMethod.GET)
     public ModelAndView artView(@PathVariable("id") int id){
         ModelAndView mv = new ModelAndView("articleview");
         mv.addObject("article", artRepo.findById(id).get());

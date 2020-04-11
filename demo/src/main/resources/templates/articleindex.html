@@ -13,7 +13,7 @@
             <h2 th:text="${list.title}"></h2>
             <h4 th:text="${list.content}"></h4>
             <div class="fakeimg" style="height:90px;" th:src="@{{filePath}+${list.image}}"></div>
-            <a th:href="@{'article/view/'+${list.id}}">more view</a>
+            <a th:href="@{'article/'+${list.id}}">more view</a>
             <a class="rightcolumn" th:href="@{'article/delete/'+${list.id}}">Delete</a>
             <a class="rightcolumn" th:href="@{'article/edit/'+${list.id}}">Edit</a>
         </div>

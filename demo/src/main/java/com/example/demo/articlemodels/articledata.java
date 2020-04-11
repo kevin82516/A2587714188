@@ -53,8 +53,8 @@ import javax.persistence.*;
 @Table(name = "article2")
 public class articledata {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
+    @GeneratedValue(strategy =GenerationType.AUTO)
+    public int Artid;
     @Column(name = "title")
     public String title;
     @Column(name = "content")
@@ -71,11 +71,11 @@ public class articledata {
     }
 
     public int getId() {
-        return id;
+        return Artid;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Artid = id;
     }
 
     public String gettitle() {
