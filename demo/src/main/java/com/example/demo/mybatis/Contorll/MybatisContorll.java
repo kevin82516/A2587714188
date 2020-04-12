@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.mybatis.mapper.cocoMapper;
 import com.example.demo.mybatis.models.coco;
+import com.example.demo.mybatis.mapper.testMapper;
+import com.example.demo.mybatis.models.test;
 
 import java.util.List;
 
@@ -19,6 +21,8 @@ public class MybatisContorll {
     private UserMapper userMapper;
     @Autowired
     private cocoMapper cocoMapper;
+    @Autowired
+    private testMapper testMapper;
 
     @GetMapping ("user")
     public List<user> getuserinfo(){
@@ -30,6 +34,13 @@ public class MybatisContorll {
     public List<coco> getcocoinfo(){
         List<coco> cocolist=cocoMapper.selectList(null);
         return cocolist;
+    }
+
+    @GetMapping ("test")
+    public List<test> gettestinfo(){
+        List<test> testlist =testMapper.findnamelist("Tom");
+        System.out.println(testlist);
+        return testlist;
     }
 
 }

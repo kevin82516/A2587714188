@@ -8,7 +8,8 @@ import com.example.demo.mybatis.models.coco;
 import java.util.List;
 
 public interface cocoMapper extends BaseMapper<coco> {
-    @Select("<script>SELECT * from user where id=1</script>")
-    List<user> getdata();
+    @Select("<script>SELECT * from coco where id=1</script>")
+    List<coco> getdata();
+
 
 }
