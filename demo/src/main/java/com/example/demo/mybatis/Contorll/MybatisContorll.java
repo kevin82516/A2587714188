@@ -38,9 +38,11 @@ public class MybatisContorll {
 
     @GetMapping ("test")
     public List<test> gettestinfo(){
-        List<test> testlist =testMapper.findnamelist("Tom");
-        System.out.println(testlist);
-        return testlist;
+        List<test> testlist0 =testMapper.fllowtime("Tom","0");
+        System.out.println(testlist0);
+        List<test> testlist1 =testMapper.fllowtime("Tom","1");
+        System.out.println(testlist1);
+        return testlist1;
     }
 
 }
